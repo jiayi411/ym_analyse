@@ -1,0 +1,27 @@
+//
+   Created by apple on 14/11/17.
+extends body
+block right_content
+    - var action_str='';
+        block initialize
+        div.page-header
+            block page_title
+        form(method='post', action=action_str)
+            fieldset
+                div
+                    label 开始时间:
+                    input(type='date' name='start_date' value=start_date)
+                    label 结束时间:
+                    input(type='date' name='end_date' value=end_date)
+                    label 分区:
+                    select(name='region')
+                        for region in regions
+                            option(value=region) #{region}
+                    label 渠道:
+                    select(name='channel')
+                        for channel in channels
+                            - var channel_names=['All','Local','Other','UC','小米','拇指玩','PP','龙运','同步推','360','Baidu','酷派','91','当乐Android','Oppo','Vivo','联想','华为','金立','豌豆荚','当乐IOS','快用','37','AppStore','爱思','iTools','同步推HD','XY','游龙'];
+                            option(value=channel) #{channel_names[channel]}
+                    input(type='submit' class='btn btn-success' value='查询')
+        p
+        block detail

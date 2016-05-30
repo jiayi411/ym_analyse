@@ -1,0 +1,7 @@
+extends layout
+
+block content
+  p #{files.length}
+  -var foo = "";
+  each line in files
+      p= line

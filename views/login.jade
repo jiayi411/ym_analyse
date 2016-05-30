@@ -1,0 +1,12 @@
+//
+   Created by apple on 14/11/21.
+extends layout
+block content
+    link(rel='stylesheet', type='text/css',href='./stylesheets/login.css')
+    div.container
+        form( class='form-signin' role='form' action='login' method='post' )
+            fieldset
+                h2.form-signin-heading Sign In
+                input( type='username', name='username', class='form-control', placeholder='Username',required autofocus)
+                input( type='password', name='password', class='form-control' placeholder='Password', required)
+                button(class="btn btn-lg btn-primary btn-block" type="submit") Sign in

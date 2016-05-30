@@ -1,0 +1,76 @@
+//
+   Created by apple on 14/11/15.
+extends top
+block initialize
+    -action_str='base-data'
+block page_title
+    h1 基础数据汇总与实时数据统计
+block detail
+        div.row-fluid
+            table.table.table-striped.table-bordered.table-hover
+                thead
+                    tr
+                        th 新增用户
+                        th 新增机器码
+                        th DAU
+                        th 机器码DAU
+                        th 次日留存
+                        th 机器码次日留存
+                        th 消费用户
+                        th 新增消费用户
+                        th 付费率
+                        th ARPPU
+                        th ARPU
+                        th 新增付费率
+                        th 总收入
+                tbody
+                    tr.gradeA
+                        td #{new_user_count}
+                        td #{new_user_count_machine}
+                        td #{DAU}
+                        td #{DAU_Machine}
+                        td #{l1_keep}
+                        td #{l1_keep_machine}
+                        td #{log_pay_user}
+                        td #{log_new_pay_user}
+                        td #{log_pay_rate}
+                        td #{ARPPU}
+                        td #{ARPU}
+                        td #{log_new_pay_rate}
+                        td #{log_income}
+
+        div.row-fluid
+            table.table.table-striped.table-bordered.table-hover.datatable
+                thead
+                    tr
+                        th 日期
+                        th 星期
+                        th 总用户
+                        th 总收入
+                        th LTV
+                        th 活跃用户
+                        th 新增用户
+                        th 消费用户
+                        th 新增消费用户
+                        th 付费率
+                        th 新增付费率
+                        th 金额
+                        th ARPPU
+                        th ARPU
+                tbody
+                    for log_detail in log_details
+                        tr.gradeA
+                            td #{log_detail.log_date}
+                            td #{log_detail.log_day}
+                            td #{log_detail.log_total_user}
+                            td #{log_detail.log_total_income}
+                            td #{log_detail.log_LTV}
+                            td #{log_detail.log_active}
+                            td #{log_detail.log_new_user}
+                            td #{log_detail.log_pay_user}
+                            td #{log_detail.log_new_pay_user}
+                            td #{log_detail.log_pay_rate}
+                            td #{log_detail.log_new_pay_rate}
+                            td #{log_detail.log_income}
+                            td #{log_detail.log_ARPPU}
+                            td #{log_detail.log_ARPU}

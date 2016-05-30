@@ -1,0 +1,71 @@
+//
+   Created by apple on 14/11/17.
+extends top
+block initialize
+    -action_str='machine-keep-data'
+block page_title
+    h1 机器码留存率统计
+block detail
+    table.table.table-striped.table-bordered.table-hover.datatable
+        thead
+            tr
+                th(rowspan='2') 日期
+                th(rowspan='2') 星期
+                th(rowspan='2') 新增
+                th(colspan='2') 第2天
+                th(colspan='2') 第3天
+                th(colspan='2') 第4天
+                th(colspan='2') 第5天
+                th(colspan='2') 第6天
+                th(colspan='2') 第7天
+                th(colspan='2') 第10天
+                th(colspan='2') 第15天
+                th(colspan='2') 第20天
+                th(colspan='2') 第30天
+            tr
+                th 留存
+                th 比例
+                th 留存
+                th 比例
+                th 留存
+                th 比例
+                th 留存
+                th 比例
+                th 留存
+                th 比例
+                th 留存
+                th 比例
+                th 留存
+                th 比例
+                th 留存
+                th 比例
+                th 留存
+                th 比例
+                th 留存
+                th 比例
+        tbody
+            for log_detail in log_details
+                tr
+                    td #{log_detail.log_date}
+                    td #{log_detail.log_day}
+                    td #{log_detail.log_new_user}
+                    td #{log_detail.l2_keep}
+                    td #{log_detail.l2_keep_rate}
+                    td #{log_detail.l3_keep}
+                    td #{log_detail.l3_keep_rate}
+                    td #{log_detail.l4_keep}
+                    td #{log_detail.l4_keep_rate}
+                    td #{log_detail.l5_keep}
+                    td #{log_detail.l5_keep_rate}
+                    td #{log_detail.l6_keep}
+                    td #{log_detail.l6_keep_rate}
+                    td #{log_detail.l7_keep}
+                    td #{log_detail.l7_keep_rate}
+                    td #{log_detail.l10_keep}
+                    td #{log_detail.l10_keep_rate}
+                    td #{log_detail.l15_keep}
+                    td #{log_detail.l15_keep_rate}
+                    td #{log_detail.l20_keep}
+                    td #{log_detail.l20_keep_rate}
+                    td #{log_detail.l30_keep}
+                    td #{log_detail.l30_keep_rate}

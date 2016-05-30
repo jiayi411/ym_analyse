@@ -1,0 +1,23 @@
+//
+   Created by apple on 14/11/30.
+extends top
+block initialize
+    -action_str='level-data'
+block page_title
+    h1 等级分布情况
+block detail
+    div.row-fluid
+        table.table.table-striped.table-bordered.table-hover.datatable
+            thead
+                tr
+                    th 日期
+                    th 星期
+                    for title_top in title_tops
+                        th #{title_top}
+            tbody
+                for log_detail in log_details
+                    tr
+                        td #{log_detail.log_date}
+                        td #{log_detail.log_day}
+                        for level_info in log_detail.level_infos
+                            td.text-danger #{level_info.count}

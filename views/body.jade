@@ -1,0 +1,37 @@
+//
+   Created by apple on 14/11/17.
+extends layout
+block content
+    div.navbar.navbar-inverse.navbar-fixed-top
+        div.container-fluid
+            div.nav-header
+                a(href="#" class='navbar-brand') 撞击吧三国
+            //if authed == true
+            div.navbar-right
+                a(href="/logout" class='navbar-brand') 登出
+    div.container-fluid
+        div.row
+            div.col-sm-3.col-md-2.sidebar
+                ul.nav.nav-sidebar
+                    li
+                        a(href="./base-data") 基础数据汇总与实时数据统计
+                    li
+                        a(href="./keep-data") 留存率统计
+                    li
+                        a(href="./hour-data") 小时新增和在线
+                    li
+                        a(href="./machine-keep-data") 机器码留存率统计
+                    li
+                        a(href="./recharge-data") 每日收费
+                    li
+                        a(href="./online") 实时在线(1分钟刷新)
+            div.col-sm-9.col-sm-offset-3.col-md-10.col-md-offset-2.main
+                div.row.placeholders
+                    block right_content
+        script(type='text/javascript').
+            $(document).ready(function(){
+                 $('.datatable').dataTable({
+                  "order": [[ 0, "desc" ]]
+                     //"aoColumns": [ { "orderSequence": [ "desc" ] } ]
+                  });
+               });

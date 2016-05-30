@@ -1,0 +1,24 @@
+//
+   Created by apple on 14/11/27.
+extends layout
+block other_script
+    script(type='text/javascript', src='./javascripts/dygraph-combined.js')
+    meta(http-equiv="refresh" content="60")
+
+extends body
+block right_content
+    div
+        div( id='chart' style="width:100%; height:600px;")
+        script(type='text/javascript').
+            var str = !{JSON.stringify(datas)};
+            // 转换数组内的数组为date
+            for( var i = 0 ; i < str.length; ++ i ){
+                var array = str[i];
+                array[0] = new Date( array[0] );
+            }
+            var g = new Dygraph(document.getElementById("chart"), str,
+                          {
+                            drawPoints: true,
+                            showRoller: true,
+                            labels: ['Time', 'Online']
+                          });

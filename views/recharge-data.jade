@@ -1,0 +1,32 @@
+//
+   Created by apple on 15/1/7.
+
+extends top
+block initialize
+    -action_str='recharge-data'
+block page_title
+    h1 充值详细信息
+block detail
+    div.row-fluid
+        table.table.table-striped.table-bordered.table-hover.datatable
+            thead
+                tr
+                    th 日期
+                    th 星期
+                    th 总收入
+                    th ARPU
+                    th ARPPU
+                    th 付费率
+                    for title_hour in title_hours
+                        th #{title_hour}
+            tbody
+                for log_detail in log_details
+                    tr
+                        td #{log_detail.log_date}
+                        td #{log_detail.log_day}
+                        td #{log_detail.total_income}
+                        td #{log_detail.ARPU}
+                        td #{log_detail.ARPPU}
+                        td #{log_detail.pay_rate}
+                        for value_hour in log_detail.value_hours
+                            td #{value_hour.cash}

@@ -1,0 +1,30 @@
+//
+   Created by apple on 14/11/17.
+extends top
+block initialize
+    -action_str='hour-data'
+block page_title
+    h1 小时新增和在线
+block detail
+        div.row-fluid
+            table.table.table-striped.table-bordered.table-hover.datatable
+                thead
+                    tr
+                        th(rowspan='2') 日期
+                        th(rowspan='2') 星期
+                        for title_top in title_tops
+                          th(colspan='3') #{title_top}
+                    tr
+                        for title_second in title_seconds
+                            th.text-danger #{title_second.online}
+                            th.text-success #{title_second.new}
+                            th.text-info #{title_second.new_strip}
+                tbody
+                    for log_detail in log_details
+                        tr
+                            td #{log_detail.log_date}
+                            td #{log_detail.log_day}
+                            for day_info in log_detail.day_infos
+                                td.text-danger #{day_info.online}
+                                td.text-success #{day_info.new}
+                                td.text-info #{day_info.new_strip}
